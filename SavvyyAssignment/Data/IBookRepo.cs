@@ -12,6 +12,10 @@ namespace SavvyyAssignment.Data
         IEnumerable<Book> GetBooks();
         Book GetBook(int id);
         void CreateBook(Book bookToInsert);
-       ///; Book UpdateBook(int id,Book bookToUpdate);
+        void UpdateBook(Book bookToUpdate);
+
+        void DeleteBook(Book bookToDelete);
+        Book MappingModelToDB(Book bookFromDB, Book bookToUpdate);
+      
     }
 }

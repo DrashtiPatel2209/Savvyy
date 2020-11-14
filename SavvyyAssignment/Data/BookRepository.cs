@@ -49,10 +49,26 @@ namespace SavvyyAssignment.Data
             _listOfBooks.Add(bookToInsert);
           
         }
+        public void UpdateBook(Book bookToUpdate)
+        {
+           ///Nothing
 
+        }
+
+        public void DeleteBook(Book bookToDelete)
+        {
+            ///Nothing
+
+        }
         public void SaveChanges()
         {
             throw new NotImplementedException();
+        }
+
+        public Book MappingModelToDB(Book bookFromDB,Book bookToUpdate)
+        {
+         return bookFromDB;
+
         }
     }
 }

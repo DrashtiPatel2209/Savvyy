@@ -49,18 +49,33 @@ namespace SavvyyAssignment.Controllers
             return CreatedAtRoute(nameof(GetBookById),new { id = bookToInsert.id}, bookToInsert);
         }
 
-        //[HttpPut]
-        //public ActionResult<Book> UpdateBook(int id, Book bookToUpdate)
-        //{
+        [HttpPut("{id}")]
+        public ActionResult<Book> UpdateBook(int id, Book bookToUpdate)
+        {
 
-        //    Book updateBook = _bookRepository.GetBook(id);
-        //    if (bookToUpdate != null)
-        //    {
-        //        return Ok(bookToUpdate);
-        //    }
-        //    ///return CreatedAtAction(nameof(Book), new { id = insertedBook.id }, insertedBook);
-        //    return NotFound();
-        //}
-
+            var bookFromDB = _bookRepository.GetBook(id);
+        
+            if (bookFromDB == null)
+            {
+                return NotFound();
+               
+            }
+            bookToUpdate = _bookRepository.MappingModelToDB(bookFromDB, bookToUpdate);
+            _bookRepository.UpdateBook(bookToUpdate);
+            _bookRepository.SaveChanges();
+            return NoContent();
+        }
+        [HttpDelete("{id}")]
+        public ActionResult DeleteBook(int id)
+        {
+            var bookFromDB = _bookRepository.GetBook(id);
+            if (bookFromDB == null)
+            {
+                return NotFound();
+            }
+             _bookRepository.DeleteBook(bookFromDB);
+            _bookRepository.SaveChanges();
+            return NoContent();
+        }
     }
 }

@@ -35,6 +35,36 @@ namespace SavvyyAssignment.Data
 
         }
 
+        public void UpdateBook(Book bookToUpdate)
+        {
+            if (bookToUpdate == null)
+            {
+                throw new ArgumentNullException();
+            }
+            _context.Books.Update(bookToUpdate);
+
+        }
+        public void DeleteBook(Book bookToDelete)
+        {
+            if (bookToDelete == null)
+            {
+                throw new ArgumentNullException();
+            }
+            _context.Books.Remove(bookToDelete);
+
+        }
+
+        public Book MappingModelToDB(Book bookFromDB, Book bookToUpdate)
+        {
+            bookFromDB.title = bookToUpdate.title;
+            bookFromDB.description = bookToUpdate.description;
+            bookFromDB.author = bookToUpdate.author;
+            bookFromDB.coverImage = bookToUpdate.coverImage;
+            bookFromDB.price = bookToUpdate.price;
+            return bookFromDB;
+
+        }
+
         public void SaveChanges()
         {
              _context.SaveChanges();
