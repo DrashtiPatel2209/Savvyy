@@ -8,10 +8,10 @@ namespace SavvyyAssignment.Data
 {
     public class BookRepository : IBookRepo
     {
-     
-        public IEnumerable<Book> GetBooks()
-        {
-            var Books = new List<Book> {
+        private List<Book> _listOfBooks;
+
+        public BookRepository() {
+            _listOfBooks = new List<Book> {
                  new Book
             {
                 id = 1,
@@ -30,22 +30,29 @@ namespace SavvyyAssignment.Data
                 coverImage = "Demo.png",
                 price = 12.00
             }
+          };
+        }
 
-            };
-            return Books;
+
+        public IEnumerable<Book> GetBooks()
+        {
+            return _listOfBooks;
         }
 
         public Book GetBook(int id)
         {
-            return new Book
-            {
-                id = 1,
-                title = "The monk who sold his ferrari",
-                author = "Robin Sharma",
-                description = "The monk who sold his ferrari",
-                coverImage = "Demo.png",
-                price = 15.00
-            };
+            return _listOfBooks.Where(n => n.id == id).SingleOrDefault();
+        }
+
+        public void CreateBook(Book bookToInsert)
+        {
+            _listOfBooks.Add(bookToInsert);
+          
+        }
+
+        public void SaveChanges()
+        {
+            throw new NotImplementedException();
         }
     }
 }

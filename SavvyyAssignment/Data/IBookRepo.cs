@@ -8,7 +8,10 @@ namespace SavvyyAssignment.Data
 {
     public interface IBookRepo
     {
+        void SaveChanges();
         IEnumerable<Book> GetBooks();
         Book GetBook(int id);
+        void CreateBook(Book bookToInsert);
+       ///; Book UpdateBook(int id,Book bookToUpdate);
     }
 }
