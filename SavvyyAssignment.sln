@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SavvyyAssignment", "SavvyyAssignment\SavvyyAssignment.csproj", "{8A30833C-8E1E-4BE1-80B7-AB7750F3E896}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SavvyyAssignment", "SavvyyAssignment\SavvyyAssignment.csproj", "{8A30833C-8E1E-4BE1-80B7-AB7750F3E896}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPITest", "WebAPITest\WebAPITest.csproj", "{AED15B35-4917-472E-819C-E98C10CAD33C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{8A30833C-8E1E-4BE1-80B7-AB7750F3E896}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A30833C-8E1E-4BE1-80B7-AB7750F3E896}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A30833C-8E1E-4BE1-80B7-AB7750F3E896}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AED15B35-4917-472E-819C-E98C10CAD33C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AED15B35-4917-472E-819C-E98C10CAD33C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AED15B35-4917-472E-819C-E98C10CAD33C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AED15B35-4917-472E-819C-E98C10CAD33C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

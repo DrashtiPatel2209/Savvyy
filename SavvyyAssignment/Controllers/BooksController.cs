@@ -44,8 +44,7 @@ namespace SavvyyAssignment.Controllers
         {
 
             _bookRepository.CreateBook(bookToInsert);
-            _bookRepository.SaveChanges();
-            ///return CreatedAtAction(nameof(Book), new { id = insertedBook.id }, insertedBook);
+            _bookRepository.SaveChanges();            
             return CreatedAtRoute(nameof(GetBookById),new { id = bookToInsert.id}, bookToInsert);
         }
 
