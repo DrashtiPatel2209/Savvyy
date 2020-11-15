@@ -15,17 +15,22 @@ namespace SavvyyAssignment.Data
             _context = context;
         }
 
+        //Get All Books
         public IEnumerable<Book> GetBooks()
         {
             return _context.Books.ToList();
         }
 
+        //Get specified book 
         public Book GetBook(int id)
         {
             return _context.Books.Where(n => n.id == id).FirstOrDefault();
         }
 
-       
+        /// <summary>
+        /// //Inser a new book to Database
+        /// </summary>
+        /// <param name="bookToInsert"></param>
         public void CreateBook(Book bookToInsert)
         {
             if(bookToInsert == null) { 
@@ -35,6 +40,7 @@ namespace SavvyyAssignment.Data
 
         }
 
+        // Update Book
         public void UpdateBook(Book bookToUpdate)
         {
             if (bookToUpdate == null)
@@ -44,6 +50,8 @@ namespace SavvyyAssignment.Data
             _context.Books.Update(bookToUpdate);
 
         }
+
+        // Delete a book
         public void DeleteBook(Book bookToDelete)
         {
             if (bookToDelete == null)
@@ -54,13 +62,14 @@ namespace SavvyyAssignment.Data
 
         }
 
-        public Book MappingModelToDB(Book bookFromDB, Book bookToUpdate)
+        // Mapping a ViewModel to Database Entity manually
+        public Book MappingModelToDB(Book bookFromDB, Book bookViewModel)
         {
-            bookFromDB.title = bookToUpdate.title;
-            bookFromDB.description = bookToUpdate.description;
-            bookFromDB.author = bookToUpdate.author;
-            bookFromDB.coverImage = bookToUpdate.coverImage;
-            bookFromDB.price = bookToUpdate.price;
+            bookFromDB.title = bookViewModel.title;
+            bookFromDB.description = bookViewModel.description;
+            bookFromDB.author = bookViewModel.author;
+            bookFromDB.coverImage = bookViewModel.coverImage;
+            bookFromDB.price = bookViewModel.price;
             return bookFromDB;
 
         }

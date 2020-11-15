@@ -15,6 +15,14 @@ namespace SavvyyAssignment.Data
         void UpdateBook(Book bookToUpdate);
 
         void DeleteBook(Book bookToDelete);
+
+        // Mapping from Viewmodel to Entity, It should be from Automapper. But its manual. 
+        /// <summary>
+        /// /
+        /// </summary>
+        /// <param name="bookFromDB"></param>
+        /// <param name="bookToUpdate"></param>
+        /// <returns></returns>
         Book MappingModelToDB(Book bookFromDB, Book bookToUpdate);
       
     }

@@ -19,6 +19,7 @@ namespace SavvyyAssignment.Controllers
             _bookRepository = bookRepository;
         }
 
+        //api/Books
         [HttpGet]
         public ActionResult<IEnumerable<Book>> GetBooks() {
 
@@ -28,7 +29,7 @@ namespace SavvyyAssignment.Controllers
             }
             return NotFound(); 
         }
-
+        //api/Books/id
         [HttpGet("{id}", Name="GetBookById")]
         public ActionResult<Book> GetBookById(int id)
         {
@@ -39,6 +40,7 @@ namespace SavvyyAssignment.Controllers
             }
              return NotFound();
         }
+        //api/Books
         [HttpPost]
         public ActionResult<Book> CreateBook(Book bookToInsert)
         {
@@ -48,6 +50,7 @@ namespace SavvyyAssignment.Controllers
             return CreatedAtRoute(nameof(GetBookById),new { id = bookToInsert.id}, bookToInsert);
         }
 
+        //api/Books/id
         [HttpPut("{id}")]
         public ActionResult<Book> UpdateBook(int id, Book bookToUpdate)
         {
@@ -64,6 +67,8 @@ namespace SavvyyAssignment.Controllers
             _bookRepository.SaveChanges();
             return NoContent();
         }
+
+        //api/Books/id
         [HttpDelete("{id}")]
         public ActionResult DeleteBook(int id)
         {
